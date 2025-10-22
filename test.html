@@ -1,153 +1,27 @@
-<!--
-  File: portfolio.html
-  Notes: This single HTML file includes embedded CSS (inside <style>).
-  If you want a separate styles.css file, copy the contents of the <style> tag into styles.css
-  and change the <style> tag to: <link rel="stylesheet" href="styles.css"> in the <head>.
--->
-
+<!-- File: index.html -->
 <!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Alex Rivera — Software Engineer</title>
-  <meta name="description" content="Portfolio of Alex Rivera — software engineer. Projects, skills, contact." />
+  <title>John Wu — Software Engineer</title>
+  <meta name="description" content="Portfolio of John Wu — software engineer. Projects, skills, contact." />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-
-  <style>
-  :root{
-    --bg1: #0f1724; /* deep navy */
-    --bg2: #0b1220; /* darker */
-    --muted: #9aa7bd;
-    --accent: #7dd3fc; /* cyan */
-    --accent-2: #b692ff; /* purple */
-    --glass: rgba(255,255,255,0.04);
-    --glass-2: rgba(255,255,255,0.02);
-    --card: rgba(255,255,255,0.03);
-    --radius: 14px;
-    color-scheme: dark;
-  }
-
-  *{box-sizing:border-box}
-  html,body{height:100%}
-  body{
-    margin:0;
-    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-    background: radial-gradient(1200px 600px at 10% 10%, rgba(125,211,252,0.06), transparent 8%),
-                radial-gradient(900px 500px at 90% 90%, rgba(182,146,255,0.04), transparent 8%),
-                linear-gradient(180deg,var(--bg1),var(--bg2));
-    color:#e6eef8;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
-    padding:48px 32px;
-  }
-
-  /* subtle animated network lines in background */
-  .bg-lines{
-    position:fixed;inset:0;z-index:0;pointer-events:none;opacity:0.22;
-    background-image:linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px),
-                     linear-gradient(0deg,rgba(255,255,255,0.02) 1px,transparent 1px);
-    background-size:300px 300px,300px 300px;
-    mix-blend-mode:overlay;
-    animation: shift 30s linear infinite;
-  }
-  @keyframes shift{from{background-position:0 0,0 0}to{background-position:600px 600px, -600px -600px}}
-
-  /* container */
-  .wrap{max-width:1100px;margin:0 auto;position:relative;z-index:2}
-
-  header{
-    display:flex;align-items:center;justify-content:space-between;margin-bottom:40px;gap:20px
-  }
-  .brand{display:flex;align-items:center;gap:14px}
-  .logo{
-    width:54px;height:54px;border-radius:12px;background:linear-gradient(135deg,var(--accent),var(--accent-2));
-    display:grid;place-items:center;font-weight:800;font-family:'JetBrains Mono',monospace;color:#07203a;box-shadow:0 6px 20px rgba(0,0,0,0.6)
-  }
-  .brand h1{font-size:18px;margin:0}
-  .brand p{margin:0;font-size:12px;color:var(--muted)}
-
-  nav{display:flex;gap:18px;align-items:center}
-  nav a{color:var(--muted);text-decoration:none;font-weight:600;font-size:13px;padding:8px 12px;border-radius:10px}
-  nav a:hover{color:var(--accent);background:var(--glass)}
-
-  /* hero */
-  .hero{
-    display:grid;grid-template-columns:1fr 380px;gap:28px;align-items:center;margin-bottom:36px
-  }
-  .intro{
-    background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-    padding:28px;border-radius:var(--radius);box-shadow:0 8px 30px rgba(2,6,23,0.6);
-    border:1px solid rgba(255,255,255,0.03)
-  }
-  .intro h2{margin:0 0 12px;font-size:28px;letter-spacing:-0.02em}
-  .intro p{margin:0;color:var(--muted);line-height:1.5}
-
-  .cta-row{display:flex;gap:12px;margin-top:20px}
-  .btn{
-    background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#042033;padding:10px 14px;border-radius:12px;font-weight:700;text-decoration:none;display:inline-flex;align-items:center;gap:10px
-  }
-  .ghost{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:10px 12px;border-radius:12px;color:var(--muted);text-decoration:none}
-
-  /* side card */
-  .profile-card{background:linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.02));padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
-  .avatar{width:86px;height:86px;border-radius:14px;background:linear-gradient(180deg,rgba(255,255,255,0.04),transparent);display:block;margin-bottom:14px}
-  .small{font-size:13px;color:var(--muted)}
-  .skill-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
-  .tag{background:var(--card);padding:8px 10px;border-radius:10px;font-size:13px;color:var(--muted);border:1px solid rgba(255,255,255,0.02)}
-
-  /* projects */
-  .section{margin-top:26px}
-  .section h3{margin:0 0 14px}
-  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-  .card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:16px;border-radius:12px;border:1px solid rgba(255,255,255,0.03);min-height:130px;display:flex;flex-direction:column;justify-content:space-between}
-  .card h4{margin:0 0 6px}
-  .card p{margin:0;color:var(--muted);font-size:13px}
-  .card .meta{display:flex;gap:8px;align-items:center;margin-top:12px}
-  .pill{font-size:12px;padding:6px 8px;border-radius:999px;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.02);color:var(--muted)}
-
-  /* footer & contact */
-  .contact-card{padding:20px;border-radius:12px;margin-top:10px;border:1px solid rgba(255,255,255,0.03);background:var(--glass-2)}
-  label{display:block;font-size:13px;margin-bottom:6px}
-  input,textarea{width:100%;padding:10px;border-radius:8px;background:transparent;border:1px solid rgba(255,255,255,0.06);color:inherit;font-size:14px}
-  .muted{color:var(--muted)}
-
-  footer{margin-top:28px;color:var(--muted);font-size:13px}
-
-  /* responsive */
-  @media (max-width:980px){
-    .hero{grid-template-columns:1fr}
-    .grid{grid-template-columns:repeat(2,1fr)}
-    .wrap{padding:0 18px}
-  }
-  @media (max-width:640px){
-    nav{display:none}
-    .grid{grid-template-columns:1fr}
-    body{padding:24px}
-    .brand h1{font-size:16px}
-  }
-
-  /* small interactive touches */
-  .card:hover{transform:translateY(-6px);transition:transform 240ms cubic-bezier(.2,.9,.2,1)}
-  .btn:active{transform:translateY(1px)}
-  </style>
-
+  <link rel="stylesheet" href="testStyles.css">
 </head>
 <body>
   <div class="bg-lines" aria-hidden="true"></div>
   <div class="wrap">
-
     <header>
       <div class="brand">
         <div class="logo">AR</div>
         <div>
-          <h1>Alex Rivera</h1>
+          <h1>John Wu</h1>
           <p class="muted">Software Engineer — Full-stack, Systems, Tooling</p>
         </div>
       </div>
-
       <nav aria-label="Primary navigation">
         <a href="#projects">Projects</a>
         <a href="#about">About</a>
@@ -159,25 +33,21 @@
     <main>
       <section class="hero">
         <article class="intro">
-          <h2>Hi — I'm Alex. I build reliable tools and delightful developer experiences.</h2>
+          <h2>Hi — I'm John. I build reliable tools and delightful developer experiences.</h2>
           <p>I design and implement systems and web applications with an emphasis on performance, clarity, and maintainability. I enjoy turning complex problems into simple experiences — whether that's a CLI tool, a backend service, or a polished web UI.</p>
-
           <div class="cta-row">
             <a class="btn" href="#contact">Work with me</a>
             <a class="ghost" href="#projects">See projects</a>
           </div>
-
           <div style="margin-top:20px;color:var(--muted);font-size:13px">
-            <strong>Location</strong>: Washington, D.C. &nbsp;•&nbsp; <span class="muted">Available for remote roles</span>
+            <strong>Location</strong>: Washington, D.C. • <span class="muted">Available for remote roles</span>
           </div>
         </article>
-
         <aside class="profile-card" aria-labelledby="profile-heading">
           <div id="profile-heading" class="small">Profile</div>
           <div class="avatar" role="img" aria-label="Avatar placeholder"></div>
-          <div style="font-weight:700">Alex Rivera</div>
+          <div style="font-weight:700">John Wu</div>
           <div class="small muted">SWE — Python, TypeScript, Go • Systems • DevTools</div>
-
           <div class="skill-list">
             <div class="tag">Python</div>
             <div class="tag">TypeScript</div>
@@ -186,7 +56,6 @@
             <div class="tag">CI/CD</div>
             <div class="tag">Databases</div>
           </div>
-
           <div style="margin-top:12px;display:flex;gap:8px">
             <a class="ghost" href="#contact">Email</a>
             <a class="ghost" href="#projects">Projects</a>
@@ -197,72 +66,12 @@
       <section id="projects" class="section">
         <h3>Selected Projects</h3>
         <div class="grid">
-          <article class="card">
-            <div>
-              <h4>Observability CLI</h4>
-              <p class="muted">A fast CLI for querying traces and logs with local caching and offline mode.</p>
-            </div>
-            <div class="meta">
-              <span class="pill">Go</span>
-              <span class="pill">CLI</span>
-              <span class="pill">open-source</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div>
-              <h4>Realtime Dashboard</h4>
-              <p class="muted">Web dashboard for monitoring internal services, with real-time charts and alerts.</p>
-            </div>
-            <div class="meta">
-              <span class="pill">TypeScript</span>
-              <span class="pill">React</span>
-              <span class="pill">Websockets</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div>
-              <h4>DevOps Templates</h4>
-              <p class="muted">Opinionated IaC templates & CI pipelines to reduce onboarding time for new services.</p>
-            </div>
-            <div class="meta">
-              <span class="pill">Terraform</span>
-              <span class="pill">CI</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div>
-              <h4>Microservice Auth</h4>
-              <p class="muted">Lightweight auth & RBAC library used across multiple services with audit logging.</p>
-            </div>
-            <div class="meta">
-              <span class="pill">Python</span>
-              <span class="pill">Security</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div>
-              <h4>Personal Blog Engine</h4>
-              <p class="muted">A small, Markdown-first SSG with integrated syntax highlighting and tags.</p>
-            </div>
-            <div class="meta">
-              <span class="pill">Rust</span>
-              <span class="pill">SSG</span>
-            </div>
-          </article>
-
-          <article class="card">
-            <div>
-              <h4>Internal SDK</h4>
-              <p class="muted">Type-safe SDK generated from OpenAPI to simplify integrations for clients.</p>
-            </div>
-            <div class="meta">
-              <span class="pill">TypeScript</span>
-            </div>
-          </article>
+          <article class="card"><div><h4>Observability CLI</h4><p class="muted">A fast CLI for querying traces and logs with local caching and offline mode.</p></div><div class="meta"><span class="pill">Go</span><span class="pill">CLI</span><span class="pill">open-source</span></div></article>
+          <article class="card"><div><h4>Realtime Dashboard</h4><p class="muted">Web dashboard for monitoring internal services, with real-time charts and alerts.</p></div><div class="meta"><span class="pill">TypeScript</span><span class="pill">React</span><span class="pill">Websockets</span></div></article>
+          <article class="card"><div><h4>DevOps Templates</h4><p class="muted">Opinionated IaC templates & CI pipelines to reduce onboarding time for new services.</p></div><div class="meta"><span class="pill">Terraform</span><span class="pill">CI</span></div></article>
+          <article class="card"><div><h4>Microservice Auth</h4><p class="muted">Lightweight auth & RBAC library used across multiple services with audit logging.</p></div><div class="meta"><span class="pill">Python</span><span class="pill">Security</span></div></article>
+          <article class="card"><div><h4>Personal Blog Engine</h4><p class="muted">A small, Markdown-first SSG with integrated syntax highlighting and tags.</p></div><div class="meta"><span class="pill">Rust</span><span class="pill">SSG</span></div></article>
+          <article class="card"><div><h4>Internal SDK</h4><p class="muted">Type-safe SDK generated from OpenAPI to simplify integrations for clients.</p></div><div class="meta"><span class="pill">TypeScript</span></div></article>
         </div>
       </section>
 
@@ -279,13 +88,10 @@
           <form onsubmit="event.preventDefault();alert('Thanks — this is a demo form.');">
             <label for="name">Name</label>
             <input id="name" placeholder="Your name" />
-
             <label for="email" style="margin-top:10px">Email</label>
             <input id="email" placeholder="you@example.com" />
-
             <label for="message" style="margin-top:10px">Message</label>
             <textarea id="message" rows="4" placeholder="Tell me about your project..."></textarea>
-
             <div style="margin-top:12px;display:flex;gap:8px">
               <button class="btn" type="submit">Send</button>
               <a class="ghost" href="#resume">Download Resume</a>
@@ -293,20 +99,16 @@
           </form>
         </div>
       </section>
-
     </main>
 
     <footer>
       <div style="display:flex;justify-content:space-between;gap:12px;align-items:center;flex-wrap:wrap">
-        <div class="muted">© <strong>Alex Rivera</strong> — Software Engineer</div>
+        <div class="muted">© <strong>John Wu</strong> — Software Engineer</div>
         <div class="muted">Built with ❤️ · <a href="#projects" style="color:var(--accent)">View projects</a></div>
       </div>
     </footer>
-
   </div>
-
   <script>
-    // small accessibility enhancement: smooth scroll for in-page links
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click', e=>{
         const href=a.getAttribute('href');
