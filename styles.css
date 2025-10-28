@@ -1,39 +1,223 @@
-body{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+/* ---------- GENERAL ---------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Zalando', sans-serif;
+
 }
 
-nav {
-    background-color: antiquewhite;
-    padding: 1rem; /* use for text */
-    padding-left: 10rem;
-    border-color: black;
-    border-width: 1rem;
-    border-radius: 1rem;
-    border-left-width: 1rem;
-    margin: 0 0 0 10rem; /*use for larger element blocks */
-    margin: auto;
+body {
+  background-color: #ffffff;
+  color: #003c73;
+  line-height: 1.6;
 }
 
-a:hover {
-    color:brown
-    text-decoration; none:
+.container {
+  width: 85%;
+  max-width: 1200px;
+  margin: auto;
 }
 
-.club {
-    color: red;
+/* ---------- HEADER ---------- */
+header {
+  background: #ffffff;
+  border-bottom: 3px solid #004e96;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-#interests {
-    color: aqua;
+header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 0;
 }
 
-#multiContent{
-    display:flex
-    justify-content;
-    flex-wrap: wrap;
+.logo {
+  display: flex;
+  align-items: center;
+  color: #004e96;
 }
 
-img {
-    border-radius: 2rem;
-    scale: 50%;
+.square {
+  width: 14px;
+  height: 14px;
+  background: #ff4b00;
+  margin-right: 10px;
+  border-radius: 2px;
+}
+
+.logo h1 {
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.divider {
+  margin: 0 6px;
+  color: #999;
+}
+
+.subtitle {
+  color: #666;
+  font-size: 15px;
+}
+
+nav ul {
+  display: flex;
+  list-style: none;
+}
+
+nav ul li {
+  margin-left: 25px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #003c73;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+nav ul li a:hover {
+  color: #ff4b00;
+}
+
+/* ---------- HERO ---------- */
+.hero {
+  background: linear-gradient(90deg, #ffffff 50%, #eaf3fb 50%);
+  padding: 100px 0;
+  display: flex;
+  align-items: center;
+}
+
+.hero .content {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.profile {
+  flex: 1;
+  text-align: center;
+  padding: 20px;
+}
+
+.profile-img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #004e96;
+  margin-bottom: 15px;
+}
+
+.profile h2 {
+  color: #004e96;
+  font-weight: 700;
+}
+
+.profile p {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.socials img {
+  width: 22px;
+  margin: 0 8px;
+  filter: invert(20%) sepia(90%) saturate(400%) hue-rotate(180deg);
+  opacity: 0.8;
+  transition: 0.3s;
+}
+
+.socials img:hover {
+  opacity: 1;
+  filter: invert(34%) sepia(94%) saturate(1895%) hue-rotate(353deg) brightness(100%) contrast(103%);
+}
+
+.intro {
+  flex: 1.5;
+  padding: 20px 40px;
+}
+
+.intro h1 {
+  font-size: 60px;
+  color: #003c73;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.intro p {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 25px;
+}
+
+.buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn {
+  text-decoration: none;
+  padding: 10px 25px;
+  border-radius: 25px;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.primary {
+  background: #ff4b00;
+  color: #fff;
+}
+
+.primary:hover {
+  background: #ff8330;
+}
+
+.secondary {
+  border: 2px solid #004e96;
+  color: #004e96;
+  background: white;
+}
+
+.secondary:hover {
+  background: #004e96;
+  color: white;
+}
+
+/* ---------- SECTIONS ---------- */
+section {
+  padding: 80px 0;
+  text-align: center;
+}
+
+.alt-section {
+  background: #f8f9fb;
+}
+
+section h2 {
+  color: #004e96;
+  font-size: 32px;
+  margin-bottom: 20px;
+}
+
+section p {
+  color: #333;
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 16px;
+}
+
+/* ---------- FOOTER ---------- */
+footer {
+  background: #003c73;
+  color: #fff;
+  padding: 30px 0;
+  text-align: center;
+  font-size: 14px;
 }
